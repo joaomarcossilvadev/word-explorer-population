@@ -1,0 +1,146 @@
+.country-card {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.country-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.09);
+}
+
+.country-card__image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.country-card__image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.country-card__content {
+  padding: 20px;
+}
+
+.country-card__header {
+  margin-bottom: 18px;
+}
+
+.country-card__name {
+  margin: 0;
+  color: #64748b;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.country-card__region {
+  margin: 5px 0 0;
+  color: #94a3b8;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.country-card__population {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: #f0fdf4;
+  border-radius: 11px;
+}
+
+.population-icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #16a34a;
+  background: #dcfce7;
+  border-radius: 9px;
+}
+
+.population-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.population-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.population-info span {
+  color: #64748b;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.population-info strong {
+  color: #16a34a;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.country-card__capital {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  margin-top: 16px;
+  padding-top: 16px;
+
+  border-top: 1px solid #e2e8f0;
+
+  font-family: "Inter", sans-serif;
+}
+
+.country-card__capital span {
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.country-card__capital strong {
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+
+@media (max-width: 650px) {
+  .country-card__image {
+    height: 170px;
+  }
+
+  .country-card__content {
+    padding: 18px;
+  }
+
+  .country-card__name {
+    font-size: 18px;
+  }
+}

@@ -1,5 +1,28 @@
 import { useState } from 'react';
 import './Hero.css';
+import CountryList from '../CountryList/CountryList';
+
+const countryNames = {
+  brasil: 'Brazil',
+  alemanha: 'Germany',
+  frança: 'France',
+  espanha: 'Spain',
+  itália: 'Italy',
+  portugal: 'Portugal',
+  japão: 'Japan',
+  china: 'China',
+  índia: 'India',
+  canadá: 'Canada',
+  méxico: 'Mexico',
+  argentina: 'Argentina',
+  chile: 'Chile',
+  colômbia: 'Colombia',
+  austrália: 'Australia',
+  egito: 'Egypt',
+  rússia: 'Russia',
+  'estados unidos': 'United States',
+  'reino unido': 'United Kingdom'
+};
 
 function Hero() {
   const [search, setSearch] = useState('');
@@ -18,12 +41,15 @@ function Hero() {
       return;
     }
 
+    const searchValue =
+      countryNames[value.trim().toLowerCase()] || value;
+
     try {
       setLoading(true);
       setError('');
 
       const response = await fetch(
-        `https://countries.dev/name/${encodeURIComponent(value)}`
+        `https://countries.dev/name/${encodeURIComponent(searchValue)}`
       );
 
       if (!response.ok) {
@@ -79,6 +105,9 @@ function Hero() {
               onChange={handleSearch}
             />
           </div>
+          <p className="hero-indicator">
+            🌎 Mais de 190 países para explorar
+          </p>
 
           {loading && (
             <p className="hero-status">
@@ -93,22 +122,8 @@ function Hero() {
           )}
 
           {!loading && countries.length > 0 && (
-            <div className="hero-results">
-              {countries.map((country) => (
-                <div
-                  className="country-result"
-                  key={country.alpha2Code}
-                >
-                  <span>{country.flag}</span>
-                  <span>{country.name}</span>
-                </div>
-              ))}
-            </div>
+            <CountryList countries={countries} />
           )}
-
-          <p className="hero-indicator">
-            🌎 Mais de 190 países para explorar
-          </p>
 
         </div>
       </div>
