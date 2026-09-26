@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./CountryList.css";
 import CardCountry from "../CardCountry/CardCountry";
 
-function CountryList({ countries }) {
+function CountryList({ countries, onCountryClick }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [countries]);
 
   const visibleCountries = countries.slice(
     currentIndex,
@@ -23,7 +27,10 @@ function CountryList({ countries }) {
   }
 
   return (
-    <section className="country-list" aria-label="Lista de países">
+    <section
+      className="country-list"
+      aria-label="Lista de países"
+    >
       <div className="country-list__container">
 
         <button
@@ -40,6 +47,7 @@ function CountryList({ countries }) {
             <CardCountry
               key={country.alpha2Code}
               country={country}
+              onClick={() => onCountryClick(country)}
             />
           ))}
         </div>

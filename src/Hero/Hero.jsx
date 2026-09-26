@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Hero.css';
 import CountryList from '../CountryList/CountryList';
+import CountryDetails from '../CountryDatails/CountryDetails';
 
 const countryNames = {
   brasil: 'Brazil',
@@ -29,6 +30,7 @@ function Hero() {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
   async function handleSearch(event) {
     const value = event.target.value;
@@ -69,6 +71,14 @@ function Hero() {
     }
   }
 
+  function handleCountryClick(country) {
+    setSelectedCountry(country);
+  }
+
+  function handleCloseDetails() {
+    setSelectedCountry(null);
+  }
+
   return (
     <section className="hero">
       <div className="hero-container">
@@ -105,6 +115,7 @@ function Hero() {
               onChange={handleSearch}
             />
           </div>
+
           <p className="hero-indicator">
             🌎 Mais de 190 países para explorar
           </p>
@@ -122,11 +133,21 @@ function Hero() {
           )}
 
           {!loading && countries.length > 0 && (
-            <CountryList countries={countries} />
+            <CountryList
+              countries={countries}
+              onCountryClick={handleCountryClick}
+            />
           )}
 
         </div>
       </div>
+
+      {selectedCountry && (
+        <CountryDetails
+          country={selectedCountry}
+          onClose={handleCloseDetails}
+        />
+      )}
     </section>
   );
 }
