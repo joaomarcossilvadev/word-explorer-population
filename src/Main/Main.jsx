@@ -1,11 +1,13 @@
+import FilterCountries from '../FilterCountries/FilterCountries';
 import Hero from '../Hero/Hero';
 
 function Main() {
   return (
     <main>
-        <Hero/>
+      <Hero />
+      <FilterCountries />
     </main>
-  )
+  );
 }
 
-export default Main
+export default Main;
