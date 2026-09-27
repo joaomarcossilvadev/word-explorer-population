@@ -28,7 +28,7 @@ Utilizei esse prompt para entender como planejar o projeto de forma consistente 
 ## 🚀 Demonstração
 
 🔗 **Acesse o projeto:**
-[https://github.com/joaomarcossilvadev/word-explorer-population](https://word-explorer-population.vercel.app/)
+(https://word-explorer-population.vercel.app/)
 
 ---
 
