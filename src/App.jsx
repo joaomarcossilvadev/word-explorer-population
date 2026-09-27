@@ -1,6 +1,6 @@
 import Footer from './Footer/Footer';
 import './globalStyles.css'
-import Header from './header/header';
+import Header from './Header/Header';
 import Main from './Main/Main';
 
 
