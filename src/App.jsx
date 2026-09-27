@@ -1,3 +1,4 @@
+import Footer from './Footer/Footer';
 import './globalStyles.css'
 import Header from './header/header';
 import Main from './Main/Main';
@@ -9,6 +10,7 @@ function App() {
     <>
       <Header/>
       <Main />
+      <Footer/>
     </>
   )
 }

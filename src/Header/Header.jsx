@@ -10,7 +10,6 @@ function Header() {
 
         <nav className="header-nav">
           <a href="#explore">Explorar países</a>
-          <a href="#about">Sobre</a>
         </nav>
       </div>
     </header>
